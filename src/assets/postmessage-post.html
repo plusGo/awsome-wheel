@@ -9,6 +9,17 @@
 </head>
 <body>
 
-<script></script>
+<script>
+  window.addEventListener("message", (event) => {
+    const data = event.data;
+    const type = event.type;
+    const source = event.source;
+    const origin = event.origin;
+    console.log(data);
+    console.log(type);
+    console.log(source);
+    console.log(origin);
+  }, false);
+</script>
 </body>
 </html>

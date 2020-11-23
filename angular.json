@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "awesome-wheel"
+  "defaultProject": "awesome-wheel",
+  "cli": {
+    "analytics": false
+  }
 }

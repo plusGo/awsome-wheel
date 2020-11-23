@@ -8,7 +8,14 @@
   <title>Document</title>
 </head>
 <body>
-
-<script></script>
+<iframe id="postIframe" src="/assets/postmessage-post.html" frameborder="0"></iframe>
+<script>
+  const destWindow = document.querySelector('#postIframe').contentWindow;
+  if (destWindow && destWindow.postMessage) {
+    destWindow.onload = () => {
+      destWindow.postMessage({value: 'hello world'}, '*');
+    };
+  }
+</script>
 </body>
 </html>
