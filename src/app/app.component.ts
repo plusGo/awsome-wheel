@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {ngxDeepClone} from '../../projects/ngx-deep-clone/src/lib/ngx-deep-clone';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'awesome-wheel';
+  constructor() {
+    const originVariable = {name: 'originVariable'};
+    const source = {fieldA: originVariable, fieldB: originVariable};
+    const cloneValue = ngxDeepClone(source);
+    console.log(cloneValue.fieldA === cloneValue.fieldB);
+  }
+
 }
