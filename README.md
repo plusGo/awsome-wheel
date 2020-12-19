@@ -1,8 +1,8 @@
 # AwesomeWheel
-## nice wheels for TypeScript
+nice wheels for TypeScript
 
 ## deepClone
-### API
+*API*
 ```TypeScript
 
   const cloneValue = ngxDeepClone(source);
