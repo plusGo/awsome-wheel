@@ -60,6 +60,19 @@ describe('NgxDeepClone', () => {
     expect(cloneValue.array1 === cloneValue.array2).toBeTruthy();
     expect(JSON.stringify(cloneValue.fieldA) === JSON.stringify(cloneValue.fieldB)).toBeTruthy();
   });
+
+  it('should deep copy with big data', () => {
+    const source = {};
+    let last = source;
+    for (let i = 0; i < 1000; i++) {
+      last[i] = {};
+      last = last[i];
+    }
+    const cloneValue = ngxDeepClone(source);
+
+    expect(source === cloneValue).toBeFalsy();
+    expect(JSON.stringify(cloneValue.fieldA) === JSON.stringify(cloneValue.fieldB)).toBeTruthy();
+  });
 });
 
 

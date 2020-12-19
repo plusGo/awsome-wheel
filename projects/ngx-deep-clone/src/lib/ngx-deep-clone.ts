@@ -18,6 +18,12 @@ export const ngxDeepClone = (value: any, recursionData?: { [key: string]: any })
   if (typeof value !== 'object' || value === null || value instanceof RegExp) {
     return value;
   }
+
+  /**
+   * 解决了两个问题：
+   * 1、重复clone同一个对象
+   * 2、循环依赖（ps：性能更好的做法是只追溯自己的父节点是否循环依赖，但是解决第一点的适合，第二点顺便解决了）
+   */
   const index = cloneValueCache.find(obj => obj.oldValue === value);
   if (index) {
     return index.newValue;
