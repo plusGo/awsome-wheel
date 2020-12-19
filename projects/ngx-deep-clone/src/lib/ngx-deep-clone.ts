@@ -1,26 +1,40 @@
-export const ngxDeepClone = (value: any, objs: any[] = []): any => {
+export const ngxDeepClone = (value: any, recursionData?: { [key: string]: any }): any => {
+  /**
+   * variables init
+   */
+  if (!recursionData) {
+    recursionData = {
+      cloneValueCache: [],
+      count: 0
+    };
+  }
+  const cloneValueCache = recursionData.cloneValueCache;
+  recursionData.count++;
+  console.log(`deep clone execute ${recursionData.count} times`);
+
+  /**
+   * recursion terminator
+   */
   if (typeof value !== 'object' || value === null || value instanceof RegExp) {
     return value;
   }
-  const index = objs.find(obj => obj.oldValue === value);
+  const index = cloneValueCache.find(obj => obj.oldValue === value);
   if (index) {
     return index.newValue;
   }
-  objs.push(value);
+
+  /**
+   * recursion process
+   */
+  const cacheValue = {oldValue: value} as any;
+  cloneValueCache.push(cacheValue);
+
   if (value instanceof Array) {
-    const result = value.map(item => ngxDeepClone(item, objs));
-    objs.push({
-      oldValue: value,
-      newValue: result
-    });
-    return result;
+    cacheValue.newValue = value.map(item => ngxDeepClone(item, recursionData));
   } else {
-    const result = {};
-    Object.keys(value).forEach(key => result[key] = ngxDeepClone(value[key], objs));
-    objs.push({
-      oldValue: value,
-      newValue: result
-    });
-    return result;
+    cacheValue.newValue = {};
+    Object.keys(value).forEach(key => cacheValue.newValue[key] = ngxDeepClone(value[key], recursionData));
   }
+
+  return cacheValue.newValue;
 };

@@ -8,10 +8,14 @@ import {ngxDeepClone} from '../../projects/ngx-deep-clone/src/lib/ngx-deep-clone
 })
 export class AppComponent {
   constructor() {
-    const originVariable = {name: 'originVariable'};
-    const source = {fieldA: originVariable, fieldB: originVariable};
-    const cloneValue = ngxDeepClone(source);
-    console.log(cloneValue.fieldA === cloneValue.fieldB);
+    let value;
+    // value = {data: {data: {data: 1}}};
+    // value.data.data.data = value;
+
+    value = {data: 1};
+    value.data = value;
+    const cloneValue = ngxDeepClone(value);
+    console.log(cloneValue)
   }
 
 }
