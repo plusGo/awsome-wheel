@@ -15,5 +15,7 @@ nice wheels for TypeScript
     const templateEngine = new NgxTemplateEngine();
     const html = 'Hello, my name is <%this.name%>. I\'m <%this.age%> years old.';    
     const engineExecutor = templateEngine.buildExecutor(html); 
-    const resultHtml = engineExecutor.execute({name: 'mhl',age: 29})      
+    const resultHtml = engineExecutor.execute({name: 'Tom',age: 29})      
+    
+    expect(resultHtml).toEqual('Hello, my name is mhl. I\'m 29 years old.');
 ```
