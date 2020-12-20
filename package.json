@@ -8,6 +8,7 @@
     "test": "ng test",
     "test:deep-clone": "ng test ngx-deep-clone",
     "test:template-engine": "ng test ngx-template-engine",
+    "build:template-engine": "ng build ngx-template-engine",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
