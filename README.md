@@ -19,3 +19,14 @@ nice wheels for TypeScript
     
     expect(resultHtml).toEqual('Hello, my name is mhl. I\'m 29 years old.');
 ```
+
+## Promise([source_code](https://github.com/plusGo/awsome-wheel/tree/main/projects/ngx-template-engine))
+*API*
+```TypeScript
+  ```
+
+## RXJS([source_code](https://github.com/plusGo/awsome-wheel/tree/main/projects/ngx-template-engine))
+*API*
+```TypeScript
+  ```
+
