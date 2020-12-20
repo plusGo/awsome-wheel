@@ -19,6 +19,10 @@
       "ngx-deep-clone": [
         "dist/ngx-deep-clone/ngx-deep-clone",
         "dist/ngx-deep-clone"
+      ],
+      "ngx-template-engine": [
+        "dist/ngx-template-engine/ngx-template-engine",
+        "dist/ngx-template-engine"
       ]
     }
   }

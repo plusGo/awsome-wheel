@@ -162,6 +162,46 @@
           }
         }
       }
+    },
+    "ngx-template-engine": {
+      "projectType": "library",
+      "root": "projects/ngx-template-engine",
+      "sourceRoot": "projects/ngx-template-engine/src",
+      "prefix": "ngx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ngx-template-engine/tsconfig.lib.json",
+            "project": "projects/ngx-template-engine/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-template-engine/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-template-engine/src/test.ts",
+            "tsConfig": "projects/ngx-template-engine/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-template-engine/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-template-engine/tsconfig.lib.json",
+              "projects/ngx-template-engine/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "awesome-wheel",
