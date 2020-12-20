@@ -9,7 +9,7 @@ nice wheels for TypeScript
 
 ```
 
-## TemplateEngine([source_code])(https://github.com/plusGo/awsome-wheel/tree/main/projects/ngx-template-engine)
+## TemplateEngine([source_code](https://github.com/plusGo/awsome-wheel/tree/main/projects/ngx-template-engine))
 *API*
 ```TypeScript
     const templateEngine = new NgxTemplateEngine();
